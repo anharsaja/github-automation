@@ -1,0 +1,25 @@
+{
+  "name": "github-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/index.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anharsaja/github-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anharsaja/github-automation/issues"
+  },
+  "homepage": "https://github.com/anharsaja/github-automation#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
