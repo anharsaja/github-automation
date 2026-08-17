@@ -37,3 +37,20 @@ export async function getRepositories() {
 
     return data;
 }
+
+export async function getRepository(owner, repo) {
+    const response = await fetch(
+        `https://api.github.com/repos/${owner}/${repo}`,
+        {
+            headers,
+        },
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message || "GitHub API request failed");
+    }
+
+    return data;
+}

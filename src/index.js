@@ -1,26 +1,28 @@
 // entry point
-
 import "dotenv/config";
 
 import {
     getAuthenticatedUser,
-    getRepositories,
+    getRepository,
 } from "./github.js";
 
 try {
     const user = await getAuthenticatedUser();
 
     console.log("GitHub user:", user.login);
-    console.log("User ID:", user.id);
-    console.log("Profile:", user.html_url);
 
-    const repositories = await getRepositories();
+    const repository = await getRepository(
+        user.login,
+        "github-automation",
+    );
 
-    console.log("\nRepositories:");
-
-    for (const repository of repositories) {
-        console.log(`- ${repository.full_name}`);
-    }
+    console.log("\nRepository:");
+    console.log("Name:", repository.name);
+    console.log("Full name:", repository.full_name);
+    console.log("Description:", repository.description);
+    console.log("Private:", repository.private);
+    console.log("Default branch:", repository.default_branch);
+    console.log("URL:", repository.html_url);
 } catch (error) {
     console.error("Error:", error.message);
 }
